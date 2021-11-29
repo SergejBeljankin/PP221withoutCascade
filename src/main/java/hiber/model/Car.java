@@ -12,6 +12,9 @@ public class Car {
     private String model;
     private int series;
 
+    @OneToOne (optional=false, mappedBy="car")
+    private User user;
+
     public Car() {
     }
 
