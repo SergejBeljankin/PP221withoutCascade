@@ -9,10 +9,15 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "model")
     private String model;
+
+    @Column(name = "series")
     private int series;
 
-    @OneToOne (optional=false, mappedBy="car")
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
     private User user;
 
     public Car() {
@@ -22,6 +27,8 @@ public class Car {
         this.model = model;
         this.series = series;
     }
+
+
 
     public Long getId() {
         return id;
@@ -54,5 +61,13 @@ public class Car {
                 ", model='" + model + '\'' +
                 ", series=" + series +
                 '}';
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

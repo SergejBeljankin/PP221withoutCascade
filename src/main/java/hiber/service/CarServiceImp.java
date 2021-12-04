@@ -1,5 +1,6 @@
 package hiber.service;
 
+import hiber.dao.CarDao;
 import hiber.dao.UserDao;
 import hiber.model.Car;
 import hiber.model.User;
@@ -10,39 +11,27 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class UserServiceImp implements UserService {
-
+public class CarServiceImp implements CarService {
+//
    @Autowired
-   private UserDao userDao;
-
-   @Transactional
-   @Override
-   public void add(User user) {
-      userDao.add(user);
-   }
+   private CarDao carDao;
 
    @Transactional
    @Override
    public void add(Car car) {
-      userDao.add(car);
-   }
-
-   @Transactional(readOnly = true)
-   @Override
-   public List<User> listUsers() {
-      return userDao.listUsers();
+      carDao.add(car);
    }
 
    @Transactional(readOnly = true)
    @Override
    public List<Car> listCar() {
-      return userDao.listCar();
+      return carDao.listCar();
    }
 
    @Transactional
    @Override
-   public List<User> findUser(String model, int seria){
-      return userDao.findUser(model, seria);
+   public List<Car> findCar(String firstName, String latstName){
+      return carDao.findCar(firstName, latstName);
    }
 
 }
