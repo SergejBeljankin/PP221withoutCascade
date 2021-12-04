@@ -46,8 +46,6 @@ public class MainApp {
       userService.add(car3);
       userService.add(car4);
 
-
-
       List<User> users = userService.listUsers();
       List<Car> cars = userService.listCar();
 
@@ -64,7 +62,6 @@ public class MainApp {
          }
       }
 
-
       System.out.println("*************************");
 
       for (Car car: cars){
@@ -76,21 +73,6 @@ public class MainApp {
       for(User user: findUser){
          System.out.println(user);
       }
-
-
-/*
-      System.out.println("**************************");
-
-      for(User user:userCar){
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = " + user.getFirstName());
-         System.out.println("Last Name = " + user.getLastName());
-         System.out.println("Email = " + user.getEmail());
-//         System.out.println("Car = " + user.getCar().toString());
-         System.out.println();
-      }
-
- */
    }
 
 
